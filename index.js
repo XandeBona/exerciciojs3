@@ -1,3 +1,14 @@
+//Função para listar bancos
+function searchBank() {
+    fetch("https://brasilapi.com.br/api/banks/v1").then((response) => {
+        return response.json();
+    })
+        .then((json) => {
+            document.getElementById("lista_banco").innerText = json.ispb, json.name, json.code, json.fullName;
+
+        })
+}
+
 //Função para buscar o CNPJ via API
 function searchCnpj() {
     const inputCnpjNumber = document.getElementById("input_cnpj");
@@ -45,14 +56,10 @@ function searchCep() {
         return response.json();
     })
         .then((json) => {
-            const inputCepState = document.getElementById("cep_state");
-            inputCepState.innerText = json.state;
-            const inputCepCity = document.getElementById("cep_city");
-            inputCepCity.innerText = json.city;
-            const inputCepNeighborhood = document.getElementById("cep_neighborhood");
-            inputCepNeighborhood.innerText = json.neighborhood;
-            const inputCepStreet = document.getElementById("cep_street");
-            inputCepStreet.innerText = json.street;
+            document.getElementById("cep_state").innerText = json.state;
+            document.getElementById("cep_city").innerText = json.city;
+            document.getElementById("cep_neighborhood").innerText = json.neighborhood;
+            document.getElementById("cep_street").innerText = json.street;
         })
 }
 
@@ -62,9 +69,12 @@ function manageEvent() {
     // const searchButton = document.getElementById("search_button");
     // searchButton.addEventListener("click", verifyCep);
 
-    //Botão para pesquisar CNPJ
-    const searchButtonCnpj = document.getElementById("search_button_cnpj");
-    searchButtonCnpj.addEventListener("click", searchCnpj);
+    // //Botão para pesquisar CNPJ
+    // const searchButtonCnpj = document.getElementById("search_button_cnpj");
+    // searchButtonCnpj.addEventListener("click", searchCnpj);
+
+    //Botão para lista Bancos existentes no Brasil
+    document.getElementById("search_button_bank").addEventListener("click", searchBank);
 }
 
 window.addEventListener("load", manageEvent);
