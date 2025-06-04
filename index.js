@@ -1,3 +1,28 @@
+//Função para buscar o CNPJ via API
+function searchCnpj() {
+    const inputCnpjNumber = document.getElementById("input_cnpj");
+    const cnpjNumberValue = inputCnpjNumber.value;
+
+    fetch("https://brasilapi.com.br/api/cnpj/v1/" + cnpjNumberValue).then((response) => {
+        return response.json();
+    })
+        .then((json) => {
+            document.getElementById("cpnj_razao_social").innerText = json.razao_social;
+            document.getElementById("cpnj_nome_fantasia").innerText = json.nome_fantasia;
+            document.getElementById("cpnj_data_inicio").innerText = json.data_inicio_atividade;
+            document.getElementById("cnpj_cnae_numero").innerText = json.cnae_fiscal;
+            document.getElementById("cpnj_cnae_descricao").innerText = json.cnae_fiscal_descricao;
+            document.getElementById("cnpj_porte").innerText = json.porte;
+            document.getElementById("cpnj_cep").innerText = json.cep;
+            document.getElementById("cpnj_uf").innerText = json.uf;
+            document.getElementById("cpnj_municipio").innerText = json.municipio;
+            document.getElementById("cpnj_rua").innerText = json.logradouro;
+            document.getElementById("cpnj_numero").innerText = json.numero;
+        })
+}
+
+
+
 //Função para validar se o CEP é válido
 function verifyCep() {
     const inputCepNumber = document.getElementById("input_cep");
@@ -10,7 +35,6 @@ function verifyCep() {
         searchCep();
     }
 }
-
 
 //Função para buscar o CEP via API
 function searchCep() {
@@ -32,11 +56,15 @@ function searchCep() {
         })
 }
 
-
 //Função para gerenciar eventos
 function manageEvent() {
-    const searchButton = document.getElementById("search_button");
-    searchButton.addEventListener("click", verifyCep);
+    // //Botão para pesquisar CEP
+    // const searchButton = document.getElementById("search_button");
+    // searchButton.addEventListener("click", verifyCep);
+
+    //Botão para pesquisar CNPJ
+    const searchButtonCnpj = document.getElementById("search_button_cnpj");
+    searchButtonCnpj.addEventListener("click", searchCnpj);
 }
 
 window.addEventListener("load", manageEvent);
