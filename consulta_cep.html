@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta CEP</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <!-- Div principal -->
+    <div class="main_div">
+        <!-- Div para agrupar o formulário e botão -->
+        <div class="main_div_form">
+            <!-- Div para o formulário -->
+            <div class="div_form">
+                <label for="input_cep">Informe o CEP:</label>
+                <input type="text" id="input_cep">
+            </div>
+            <button id="search_button">Pesquisar</button>
+        </div>
+        <!-- Div para agrupar os dados do CEP -->
+        <div class="main_div_info">
+            <!-- Div para demonstrar o Estado do CEP -->
+            <div class="div_info">
+                <h4>Estado:</h4>
+                <p id="cep_state"></p>
+            </div>
+            <!-- Div para demonstrar a cidade do CEP -->
+            <div class="div_info">
+                <h4>Cidade:</h4>
+                <p id="cep_city"></p>
+            </div>
+            <!-- Div para demonstrar o bairro do CEP -->
+            <div class="div_info">
+                <h4>Bairro:</h4>
+                <p id="cep_neighborhood"></p>
+            </div>
+            <!-- Div para demonstrar a rua do CEP -->
+            <div class="div_info">
+                <h4>Rua:</h4>
+                <p id="cep_street"></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
